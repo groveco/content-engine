@@ -1,0 +1,13 @@
+flask=0.10.1=py27_1
+jinja2=2.8=py27_0
+nomkl=1.0=0
+numpy=1.11.0=py27_nomkl_1
+pandas=0.18.1=np111py27_0
+redis=2.6.9=0
+redis-py=2.10.3=py27_0
+requests=2.10.0=py27_0
+scikit-learn=0.17.1=np111py27_nomkl_1
+scipy=0.17.1=np111py27_nomkl_0
+setuptools=20.7.0=py27_0
+six=1.9.0=py27_0
+wheel=0.29.0=py27_0
