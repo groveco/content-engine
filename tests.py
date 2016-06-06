@@ -1,7 +1,6 @@
-import unittest
-from engines import content_engine
-from web import app
 from flask import current_app
+from web import app
+import unittest
 import json
 
 
@@ -10,6 +9,9 @@ class ContentEngineTestCase(unittest.TestCase):
     def test_similar(self):
         ctx = app.test_request_context()
         ctx.push()
+
+        from engines import content_engine
+
         content_engine.train('sample-data.csv')
 
         data = {'item': 1, 'num': 10}

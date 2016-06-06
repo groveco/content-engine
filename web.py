@@ -1,6 +1,5 @@
 from flask.ext.api import FlaskAPI
 from flask import request, current_app, abort
-from engines import content_engine
 from functools import wraps
 
 app = FlaskAPI(__name__)
@@ -19,6 +18,7 @@ def token_auth(f):
 @app.route('/predict', methods=['POST'])
 @token_auth
 def predict():
+    from engines import content_engine
     item = request.data.get('item')
     num_predictions = request.data.get('num', 10)
     if not item:
@@ -29,6 +29,7 @@ def predict():
 @app.route('/train')
 @token_auth
 def train():
+    from engines import content_engine
     data_url = request.data.get('data-url', None)
     content_engine.train(data_url)
     return {"message": "Success!", "success": 1}
