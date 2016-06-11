@@ -20,7 +20,7 @@ Create a new virtualenv with the needed dependencies. Note this
 
 >> conda create -n crec --file conda.txt
 
-Now, in the virtualenv:
+Now, in the virtualenv (``source activate crec``):
 
 >> python web.py
 
@@ -48,6 +48,6 @@ Be sure to set your environmental variables (in settings.py) and provide your ow
 
 ## Running tests
 
-Well...technically it's running test, singular :)
+Well...technically it's running *test*, singular :)
 
 >> python -m unittest tests

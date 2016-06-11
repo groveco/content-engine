@@ -33,13 +33,17 @@ class ContentEngine(object):
         """
         Train the engine.
 
-        Create a TF-IDF matrix of unigrams, bigrams, and trigrams for each product,
-        then, computing similarity between all products using a linear kernel (which in this case is
+        Create a TF-IDF matrix of unigrams, bigrams, and trigrams for each product. The 'stop_words' param
+        tells the TF-IDF module to ignore common english words like 'the', etc.
+
+        Then we compute similarity between all products using SciKit Leanr's linear_kernel (which in this case is
         equivalent to cosine similarity).
 
-        Iterate through each item and store the 100 most-similar items.
-        Stops at 100 because well...how many similar products do you really need to show?
+        Iterate through each item's similar items and store the 100 most-similar. Stops at 100 because well...
+        how many similar products do you really need to show?
+
         Similarities and their scores are stored in redis as a Sorted Set, with one set for each item.
+
         :param ds: A pandas dataset containing two fields: description & id
         :return: Nothin!
         """
@@ -60,6 +64,7 @@ class ContentEngine(object):
     def predict(self, item_id, num):
         """
         Couldn't be simpler! Just retrieves the similar items and their 'score' from redis.
+
         :param item_id: string
         :param num: number of similar items to return
         :return: A list of lists like: [["19", 0.2203], ["494", 0.1693], ...]. The first item in each sub-list is
