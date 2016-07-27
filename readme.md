@@ -20,36 +20,36 @@ web.py contains the two endpoints:
 
 Create a new virtualenv with the needed dependencies. Note this
 
->> conda create -n crec --file conda.txt
+> conda create -n crec --file conda.txt
 
 Now, in the virtualenv (``source activate crec``):
 
->> python web.py
+> python web.py
 
 Then, in a separate terminal window, train the engine:
 
->> curl -X GET -H "X-API-TOKEN: FOOBAR1" -H "Content-Type: application/json; charset=utf-8" http://127.0.0.1:5000/train -d "{\"data-url\": \"sample-data.csv\"}"
+> curl -X GET -H "X-API-TOKEN: FOOBAR1" -H "Content-Type: application/json; charset=utf-8" http://127.0.0.1:5000/train -d "{\"data-url\": \"sample-data.csv\"}"
 
 And make a prediction!
 
->> curl -X POST -H "X-API-TOKEN: FOOBAR1" -H "Content-Type: application/json; charset=utf-8" http://127.0.0.1:5000/predict -d "{\"item\":18,\"num\":10}"
+> curl -X POST -H "X-API-TOKEN: FOOBAR1" -H "Content-Type: application/json; charset=utf-8" http://127.0.0.1:5000/predict -d "{\"item\":18,\"num\":10}"
 
 ## Deploying
 
 This engine is designed to be deployed to Heroku. First, create a new app:
 
->> heroku create
+> heroku create
 
 You'll then need to set the buildpack for the app to use Anaconda; a packaging system for scientific computing libraries in Python.
 
->> heroku buildpacks:set https://github.com/kennethreitz/conda-buildpack.git
+> heroku buildpacks:set https://github.com/kennethreitz/conda-buildpack.git
 
 Be sure to set your environmental variables (in settings.py) and provide your own training data. Then just:
 
->> git push heroku master
+> git push heroku master
 
 ## Running tests
 
 Well...technically it's running *test*, singular :)
 
->> python -m unittest tests
+> python -m unittest tests
