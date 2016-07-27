@@ -4,6 +4,8 @@
 
 This is a production-ready, but very simple, content-based recommendation engine that computes similar items based on text descriptions. It comes with a sample data file (the headers of the input file are expected to be identical to the same file -- id, description) of 500 products so you can try it out.
 
+This code was built to accompany [this blog post](http://blog.untrod.com/2016/06/simple-similar-products-recommendation-engine-in-python.html) that explains the motivation of the content engine and walks through the approach.
+
 It is a flask-based REST webservice designed to be deployed to Heroku and relies on Anaconda for installation of the scientific computing dependencies, and Redis to store precomputed similarities.
 
 Read the comments in engine.py to see how it works. It's very simple!
