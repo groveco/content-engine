@@ -22,7 +22,7 @@ First, make sure you have a local redis instance running. The engine expects to 
 
 You'll also need [Anaconda](https://www.continuum.io/downloads) installed (a scientific distribution of Python). Create a new virtualenv with the needed dependencies:
 
-> conda create -n crec --file conda.txt
+> conda create -n crec --file conda-requirements.txt
 
 Now, in the virtualenv (``source activate crec``):
 
