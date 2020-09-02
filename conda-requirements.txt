@@ -1,5 +1,5 @@
-flask=0.11.3
-jinja2=2.8.1
+flask>=1.0.0
+Jinja2>=2.10.1
 nomkl=1.0=0
 numpy=1.11.0=py27_nomkl_1
 pandas=0.18.1=np111py27_0
